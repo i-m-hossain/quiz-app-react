@@ -1,0 +1,38 @@
+ul {
+    width: 50%;
+    height: 60px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul:first-child {
+    margin-left: 30px;
+}
+
+ul li {
+    font-weight: 600;
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.brand h3 {
+    font-size: 18px;
+    line-height: 19px;
+    font-weight: 700;
+}
+
+.brand img {
+    width: 32px;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .brand h3 {
+        display: none;
+    }
+}
