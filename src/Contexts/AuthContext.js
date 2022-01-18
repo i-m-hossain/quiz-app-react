@@ -21,7 +21,7 @@ export const useAuth = () => {
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState(null);
-    //observer
+    //observer (observes user state change i.e. signup, login and logout)
     useEffect(() => {
         const auth = getAuth();
         const unsubscribe = onAuthStateChanged(auth, (user) => {

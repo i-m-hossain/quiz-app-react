@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "../Contexts/AuthContext";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PublicRoute from "../PublicRoute/PublicRoute";
 import "./../styles/App.css";
 import Layout from "./Layout/Layout";
 import Home from "./pages/Home/Home";
@@ -15,9 +17,30 @@ function App() {
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/register" element={<SignUp />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/quiz" element={<Quiz />} />
+                        <Route
+                            path="/register"
+                            element={
+                                <PublicRoute>
+                                    <SignUp />
+                                </PublicRoute>
+                            }
+                        />
+                        <Route
+                            path="/login"
+                            element={
+                                <PublicRoute>
+                                    <Login />
+                                </PublicRoute>
+                            }
+                        />
+                        <Route
+                            path="/quiz"
+                            element={
+                                <PrivateRoute>
+                                    <Quiz />
+                                </PrivateRoute>
+                            }
+                        />
                         <Route path="/result" element={<Result />} />
                     </Routes>
                 </Layout>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../../Contexts/AuthContext";
 import Button from "../Button/Button";
 import Form from "../Form/Form";
@@ -12,14 +12,15 @@ const LoginForm = () => {
     const [error, setError] = useState("");
     const { login } = useAuth();
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             setLoading(true);
             setError("");
             await login(email, password);
-            navigate("/");
+            navigate(from, { replace: true });
         } catch (err) {
             console.log(err);
             setLoading(false);
