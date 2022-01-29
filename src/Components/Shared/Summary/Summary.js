@@ -1,12 +1,13 @@
 import React from "react";
 import classes from "./Summary.module.css";
 import image from "./../../../images/success.png";
-const Summary = ({ answers }) => {
+const Summary = ({ noq, score }) => {
     return (
         <div className={classes.summary}>
             <div className={classes.point}>
                 <p className={classes.score}>
-                    Your score is <br />5 out of {answers.length}
+                    Your score is <br />
+                    {score} out of {noq * 5}
                 </p>
             </div>
 
