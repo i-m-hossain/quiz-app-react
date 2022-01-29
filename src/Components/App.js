@@ -41,7 +41,7 @@ function App() {
                                 </PrivateRoute>
                             }
                         />
-                        <Route path="/result/:uid" element={<Result />} />
+                        <Route path="/result/:id" element={<Result />} />
                     </Routes>
                 </Layout>
             </AuthProvider>

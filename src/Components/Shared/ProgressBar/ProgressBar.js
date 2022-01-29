@@ -25,15 +25,11 @@ const ProgressBar = ({ prev, next, progress, submit }) => {
                 onClick={progress === 100 ? submit : next}
             >
                 {progress !== 100 ? (
-                    <>
-                        <span>Next Question</span>
-                        <span className="material-icons-outlined">
-                            arrow_forward
-                        </span>
-                    </>
+                    <span>Next Question</span>
                 ) : (
                     <span>Submit</span>
                 )}
+                <span className="material-icons-outlined">arrow_forward</span>
             </Button>
         </div>
     );
