@@ -1,12 +1,4 @@
-import {
-    get,
-    getDatabase,
-    limitToFirst,
-    orderByKey,
-    query,
-    ref,
-    startAt,
-} from "firebase/database";
+import { get, getDatabase, orderByKey, query, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 const useQuestions = (videoId) => {
@@ -18,10 +10,9 @@ const useQuestions = (videoId) => {
         async function fetchQuestions() {
             // database related works
             const db = getDatabase();
-            console.log(db);
             const quizRef = ref(db, "quiz/" + videoId + "/questions");
-            const quizQuery = query(quizRef, orderByKey());
 
+            const quizQuery = query(quizRef, orderByKey());
             try {
                 setError(false);
                 setLoading(true);
@@ -36,7 +27,6 @@ const useQuestions = (videoId) => {
                             ...Object.values(snapshot.val()), //object to array conversion
                         ];
                     });
-                } else {
                 }
             } catch (err) {
                 console.log(err);
