@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Summary from "../../Shared/Summary/Summary";
 import Analysis from "../../Shared/Analysis/Analysis";
 import { useLocation, useParams } from "react-router-dom";
@@ -9,7 +9,7 @@ const Result = () => {
     const { state: qna } = useLocation(); //qna alias of state
     const { id } = useParams();
     const { answers, error, loading } = useAnswers(id);
-    
+
     //score calculator
     const calculate = () => {
         //now we got correct answer and submitted answer, what we need to do is to compare the two objects. In order to do that, for every answer we will loop through the options and the correct indexes will be pushed to a new array 'correctIndexes', again as qna also has the same structure like answers we can easily access qna options which are different by using the index of answers. Make  a different array 'checkedIndexes' for the checked indexes. also for the result analysis add checked property to answers. now compare the two array using lodash method 'isEqual' and if it is true increase the value of score by 5.
