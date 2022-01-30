@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
 import classes from "./Summary.module.css";
 import successImage from "./../../../images/success.png";
 import useFetchApi from "../../../hooks/useFetchApi";
 const Summary = ({ noq, score }) => {
-    const getQuery = () => {
+    const getQuery = useMemo(() => {
+        console.log("summary");
         if ((score / (noq * 5)) * 100 < 50) {
             return "failed";
         } else if ((score / (noq * 5)) * 100 < 75) {
@@ -13,9 +14,9 @@ const Summary = ({ noq, score }) => {
         } else {
             return "excellent";
         }
-    };
+    }, [noq, score]);
     const { loading, error, result } = useFetchApi(
-        `https://api.pexels.com/v1/search?query=${getQuery()}&per_page=1`,
+        `https://api.pexels.com/v1/search?query=${getQuery}&per_page=1`,
         "GET",
         {
             Authorization: process.env.REACT_APP_PEXEL_API_KEY,
@@ -31,7 +32,7 @@ const Summary = ({ noq, score }) => {
                 </p>
             </div>
             {loading && <div>Loading... </div>}
-            {error && <div>error occured</div>}
+            {error && <div>there is an error.</div>}
             {!loading && !error && result && (
                 <div className={classes.badge}>
                     <img src={image} alt="Success" />

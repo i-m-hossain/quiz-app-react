@@ -4,7 +4,6 @@ const useFetchApi = (url, method, headers) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [result, setResult] = useState(null);
-    console.log(url, method, headers);
     useEffect(() => {
         const requestFetch = async () => {
             try {
@@ -24,7 +23,7 @@ const useFetchApi = (url, method, headers) => {
             }
         };
         requestFetch();
-    }, []);
+    }, []); //no dependency is used here, because the headers is an object which changes every time and useEffect also rerender the component causing an infinity loop, besides we need to fetch the api only once.  
     return { loading, error, result };
 };
 export default useFetchApi;
