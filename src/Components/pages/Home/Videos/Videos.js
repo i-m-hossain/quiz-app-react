@@ -7,7 +7,6 @@ import Video from "../Video/Video";
 const Videos = () => {
     const [page, setPage] = useState(1);
     const { loading, error, videos, hasMore } = useVideoList(page);
-    console.log(videos);
 
     return (
         <div>

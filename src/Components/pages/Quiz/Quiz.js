@@ -63,7 +63,6 @@ const Quiz = () => {
     };
     //handle when user clicks the next button to get the next question
     const nextQuestion = () => {
-        console.log("i got clicked next");
         if (currentQuestion + 1 < questions.length) {
             setCurrentQuestion((prev) => prev + 1);
         }
@@ -82,7 +81,7 @@ const Quiz = () => {
     //save quiz answer to the database or submit quiz to the database
     const handleSubmit = async () => {
         const { uid } = currentUser;
-        console.log(uid);
+
         const db = getDatabase();
         const resultRef = ref(db, `result/${uid}`);
         await set(resultRef, {

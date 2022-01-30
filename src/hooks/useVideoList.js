@@ -19,7 +19,6 @@ const useVideoList = (page) => {
         async function fetchVideos() {
             // database related works
             const db = getDatabase();
-            console.log(db);
             const videosRef = ref(db, "videos");
             const videoQuery = query(
                 videosRef,

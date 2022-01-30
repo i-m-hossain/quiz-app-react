@@ -74,7 +74,7 @@ const SignupForm = () => {
                 onChange={(e) => setAgree(e.target.value)}
             />
             <Button disabled={loading} type="submit">
-                <span>Submit now</span>
+                <span>Sign up</span>
             </Button>
             {error && <p className="error">{error}</p>}
             <div className="info">

@@ -4,7 +4,6 @@ import successImage from "./../../../images/success.png";
 import useFetchApi from "../../../hooks/useFetchApi";
 const Summary = ({ noq, score }) => {
     const getQuery = useMemo(() => {
-        console.log("summary");
         if ((score / (noq * 5)) * 100 < 50) {
             return "failed";
         } else if ((score / (noq * 5)) * 100 < 75) {

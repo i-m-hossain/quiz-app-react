@@ -45,8 +45,8 @@ const LoginForm = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <Button type="button" disabled={loading}>
-                <span>Submit now</span>
+            <Button type="submit" disabled={loading}>
+                <span>Login</span>
             </Button>
             {error && <p class="error">{error}</p>}
             <div className="info">
