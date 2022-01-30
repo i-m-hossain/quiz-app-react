@@ -11,18 +11,18 @@
     border-radius: 5px;
 }
 
-.miniPlayer img {
+.miniPlayer .player {
     width: 300px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     animation: miniplayerAnim 0.3s ease forwards;
 }
 
-.open {
+.miniPlayer .open {
     display: none;
 }
 
-.close {
+.miniPlayer .close {
     display: block;
     position: absolute;
     right: -8px;
@@ -37,7 +37,7 @@
     padding: 5px 0 0 3px;
 }
 
-.close:hover {
+.miniPlayer .close:hover {
     color: #666666;
     cursor: pointer;
     outline: 0;
