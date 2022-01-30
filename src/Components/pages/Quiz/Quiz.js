@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import useQuestions from "../../../hooks/useQuestions";
 import Answers from "../../Shared/Answers/Answers";
 import MiniPlayer from "../../Shared/MiniPlayer/MiniPlayer";
@@ -33,6 +33,8 @@ const reducer = (state, action) => {
 
 const Quiz = () => {
     const { id } = useParams();
+    const { state: vTitle } = useLocation();
+
     const { loading, error, questions } = useQuestions(id);
     const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -107,7 +109,7 @@ const Quiz = () => {
                         progress={percentage}
                         submit={handleSubmit}
                     />
-                    <MiniPlayer vid={id} title={qna[currentQuestion].title} />
+                    <MiniPlayer vid={id} title={vTitle} />
                 </>
             )}
         </>

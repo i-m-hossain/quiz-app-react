@@ -23,6 +23,7 @@ const Videos = () => {
                             <Link
                                 key={video.youtubeID}
                                 to={`/quiz/${video.youtubeID}`}
+                                state={video.title}
                             >
                                 <Video
                                     title={video.title}
