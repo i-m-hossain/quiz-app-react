@@ -1,6 +1,6 @@
 # A Quiz app using React
 
-Live link [Quiz App](https://github.com/facebook/create-react-app).
+Live link [Quiz App](https://quiz-react-js.netlify.app/).
 
 ## Features
 
